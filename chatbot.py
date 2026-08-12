@@ -18,7 +18,8 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv('master_ecommerce_data.csv')
+       
+        df = pd.read_csv('master_ecommerce_data.zip', compression='zip')
         df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'], errors='coerce')
         return df
     except FileNotFoundError:
